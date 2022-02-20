@@ -3,6 +3,7 @@ package com.example.springwrongdemo.controller;
 import com.example.springwrongdemo.service.DataService;
 import com.example.springwrongdemo.service.ServiceImpl2;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Lookup;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.context.ApplicationContext;
@@ -29,6 +30,16 @@ public class HelloWorldController {
 
     public ServiceImpl2 getServiceImpl2() {
         return applicationContext.getBean(ServiceImpl2.class);
+    }
+
+    @Lookup
+    public ServiceImpl2 getServiceImpl2Way2() {
+        return null;
+    }
+
+    @RequestMapping(path = "hiProtoTypeWay2")
+    public String hiProtoTypeWay2() {
+        return "hello world,service is :" + getServiceImpl2Way2();
     }
 
     /**

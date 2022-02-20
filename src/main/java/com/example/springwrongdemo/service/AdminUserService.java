@@ -20,6 +20,6 @@ public class AdminUserService {
     public final User adminUser = new User("20220116");
 
     public void login() {
-        log.info("login...");
+        log.info("admin user login...");
     }
 }

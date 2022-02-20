@@ -4,6 +4,7 @@ import com.example.springwrongdemo.entity.Student;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -23,19 +24,22 @@ public class JavaConfig {
      * 这个bean装配给ServiceImpl1的构造器参数
      * * @return
      */
-    @Bean
+    @Bean("myServiceName")
     public String serviceName() {
-        return "myServiceName";
+        return "myServiceNameValue";
     }
-
-    @Bean
+    @Bean("myServiceName2")
+    public String serviceName2() {
+        return "myServiceName2Value";
+    }
+    @Bean("student")
     public Student student() {
         return createStudent(1, "xie");
     }
 
     @Bean("students")
     public List<Student> students() {
-        return Arrays.asList(createStudent(1, "xie"),createStudent(2, "liu"));
+        return new ArrayList<>(Arrays.asList(createStudent(1, "xie"),createStudent(2, "liu")));
     }
 
     private Student createStudent(int id, String name) {

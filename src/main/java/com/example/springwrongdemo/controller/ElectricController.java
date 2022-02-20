@@ -1,5 +1,6 @@
 package com.example.springwrongdemo.controller;
 
+import com.example.springwrongdemo.config.TakeTime;
 import com.example.springwrongdemo.service.ElectricService;
 import com.example.springwrongdemo.service.ElectricService1;
 import com.example.springwrongdemo.service.ElectricService2;
@@ -29,34 +30,17 @@ public class ElectricController {
     ElectricService2 electricService2;
     @Autowired
     ElectricService3 electricService3;
-
+    @TakeTime
     @RequestMapping(path = "charge")
     public void charge() throws InterruptedException {
         electricService.charge();
     }
 
-    /**
-     * todo
-     * 为何不生效
-     *
-     * @throws InterruptedException
-     * @EnableAspectJAutoProxy(proxyTargetClass = true, exposeProxy = true)
-     */
     @RequestMapping(path = "charge1")
     public void charge1() throws InterruptedException {
         electricService1.charge();
     }
 
-    /**
-     * todo
-     * 为何AopConfig不生效
-     *
-     * @throws InterruptedException
-     */
-    @RequestMapping(path = "charge2")
-    public void charge2() throws InterruptedException {
-        electricService1.pay();
-    }
 
     /**
      * 不能直接从代理类中拿代理类的属性

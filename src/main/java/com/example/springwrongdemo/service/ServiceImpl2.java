@@ -1,6 +1,8 @@
 package com.example.springwrongdemo.service;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
@@ -21,9 +23,10 @@ public class ServiceImpl2 {
 
     /**
      * 解决：新增JavaConfig
+     * @Qualifier("myServiceName2")
      * @param serviceName
      */
-    public ServiceImpl2(String serviceName) {
+    public ServiceImpl2(@Qualifier("myServiceName2") String serviceName) {
         this.serviceName = serviceName;
     }
 

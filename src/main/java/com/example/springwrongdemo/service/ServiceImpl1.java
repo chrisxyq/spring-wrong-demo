@@ -1,6 +1,7 @@
 package com.example.springwrongdemo.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 
@@ -22,7 +23,7 @@ public class ServiceImpl1 {
      * 解决：新增JavaConfig
      * @param serviceName
      */
-    public ServiceImpl1(String serviceName) {
+    public ServiceImpl1(@Qualifier("myServiceName2")String serviceName) {
         this.serviceName = serviceName;
     }
 
